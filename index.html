@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Arithmetic & Congruence Solver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <main class="container">
+        <header>
+            <h1>Modulus<span>Pro</span></h1>
+            <p>Advanced Number Theory & Congruence Solver</p>
+        </header>
+
+        <div class="glass-panel main-interface">
+            <nav class="tools-nav">
+                <button class="nav-btn active" data-target="gcd" aria-label="GCD & Extended Euclidean">GCD & Ext. Euclidean</button>
+                <button class="nav-btn" data-target="mod-arithmetic" aria-label="Modular Arithmetic">Modular Arithmetic</button>
+                <button class="nav-btn" data-target="linear-congruence" aria-label="Linear Congruence">Linear Congruence</button>
+                <button class="nav-btn" data-target="crt" aria-label="Chinese Remainder Theorem">CRT Solver</button>
+            </nav>
+
+            <div class="tool-content active" id="gcd">
+                <h2>GCD & Extended Euclidean Algorithm</h2>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="gcd-a">Number a</label>
+                        <input type="number" id="gcd-a" placeholder="e.g., 252" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="gcd-b">Number b</label>
+                        <input type="number" id="gcd-b" placeholder="e.g., 105" required>
+                    </div>
+                </div>
+                <button class="primary-btn" id="btn-calc-gcd">Calculate GCD & Inverse</button>
+                <div class="result-area" id="res-gcd">
+                    <!-- Results go here -->
+                </div>
+            </div>
+
+            <div class="tool-content" id="mod-arithmetic">
+                <h2>Modular Arithmetic</h2>
+                <div class="input-group triplet">
+                    <div class="input-field">
+                        <label for="mod-a">a</label>
+                        <input type="number" id="mod-a" placeholder="Value A">
+                    </div>
+                    <div class="input-field op-select">
+                        <label for="mod-op">Operation</label>
+                        <select id="mod-op">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">×</option>
+                            <option value="^">^ (Exp)</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label for="mod-b">b</label>
+                        <input type="number" id="mod-b" placeholder="Value B">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="mod-m">Modulo (m)</label>
+                        <input type="number" id="mod-m" placeholder="e.g., 7" required>
+                    </div>
+                </div>
+                <button class="primary-btn" id="btn-calc-mod">Compute</button>
+                <div class="result-area" id="res-mod"></div>
+            </div>
+
+            <div class="tool-content" id="linear-congruence">
+                <h2>Linear Congruence Solver</h2>
+                <p class="subtitle">Solves equations of the form: ax ≡ b (mod m)</p>
+                <div class="input-group triplet">
+                    <div class="input-field">
+                        <label for="lc-a">a</label>
+                        <input type="number" id="lc-a" placeholder="e.g., 3" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="lc-b">b</label>
+                        <input type="number" id="lc-b" placeholder="e.g., 4" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="lc-m">m (Modulo)</label>
+                        <input type="number" id="lc-m" placeholder="e.g., 5" required>
+                    </div>
+                </div>
+                <button class="primary-btn" id="btn-calc-lc">Solve for x</button>
+                <div class="result-area" id="res-lc"></div>
+            </div>
+
+            <div class="tool-content" id="crt">
+                <h2>Chinese Remainder Theorem</h2>
+                <p class="subtitle">Solves: x ≡ a_i (mod m_i)</p>
+                
+                <div id="crt-inputs-container">
+                    <div class="input-row crt-row">
+                        <div class="input-field">
+                            <label>a₁</label>
+                            <input type="number" class="crt-a" placeholder="Remainder" required>
+                        </div>
+                        <div class="input-field">
+                            <label>m₁</label>
+                            <input type="number" class="crt-m" placeholder="Modulus" required>
+                        </div>
+                    </div>
+                    <div class="input-row crt-row">
+                        <div class="input-field">
+                            <label>a₂</label>
+                            <input type="number" class="crt-a" placeholder="Remainder" required>
+                        </div>
+                        <div class="input-field">
+                            <label>m₂</label>
+                            <input type="number" class="crt-m" placeholder="Modulus" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-row">
+                    <button class="secondary-btn" id="btn-add-crt-row">+ Add Equation</button>
+                    <button class="primary-btn" id="btn-calc-crt">Solve System</button>
+                </div>
+                <div class="result-area" id="res-crt"></div>
+            </div>
+
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
